@@ -2,14 +2,12 @@
 import { store } from './store'
 import HeaderComp from './components/HeaderComp.vue'
 import MainComp from './components/MainComp.vue'
-import searchBar from './components/SearchBar.vue'
 
 export default {
   name: "App",
   components: {
     HeaderComp,
     MainComp,
-    searchBar
   },
   data() {
     return {

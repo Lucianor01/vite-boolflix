@@ -19,7 +19,11 @@ export default {
 </script>
 
 <template>
-    <FilmComp v-for="(film, index) in store.arrayFilms" :key="index" :films="film" />
+    <div class="container">
+        <div class="row">
+            <FilmComp v-for="(film, index) in store.arrayFilms" :key="index" :films="film" />
+        </div>
+    </div>
 </template>
 
 <style lang="scss" scoped></style>

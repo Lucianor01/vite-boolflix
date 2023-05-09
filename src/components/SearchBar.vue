@@ -14,12 +14,13 @@ export default {
 </script>
 
 <template>
-    <!-- <form class="d-flex" role="search"> -->
-    <div class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" v-model="store.searchBar">
-        <button @click.prevent="$emit('nomeEmit')" class="btn btn-outline-success" type="submit">Search</button>
-    </div>
-    <!-- </form> -->
+    <form class="d-flex" role="search">
+        <div class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Cerca" aria-label="Search"
+                v-model="store.searchBar">
+            <button @click.prevent="$emit('nomeEmit')" class="btn btn-outline-success" type="submit">Search</button>
+        </div>
+    </form>
 </template>
 
 <style lang="scss" scoped></style>
