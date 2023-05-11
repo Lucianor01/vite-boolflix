@@ -40,6 +40,32 @@ export default {
         },
         getVote() {
             return Math.ceil(this.info.vote_average / 2)
+        },
+        flagApi(x) {
+            x = x.toUpperCase();
+
+            if (x == 'EN') {
+                x = 'GB'
+                return `https://flagsapi.com/${x}/shiny/32.png`
+            } else if (x == 'JA') {
+                x = 'JP'
+                return `https://flagsapi.com/${x}/shiny/32.png`
+            }
+            else if (x == 'KO') {
+                x = 'KR'
+                return `https://flagsapi.com/${x}/shiny/32.png`
+            }
+            else if (x == 'HI') {
+                x = 'IN'
+                return `https://flagsapi.com/${x}/shiny/32.png`
+            }
+            else if (x == 'XX') {
+                x = 'GB'
+                return `https://flagsapi.com/${x}/shiny/32.png`
+            }
+            else {
+                return `https://flagsapi.com/${x}/shiny/32.png`
+            }
         }
     },
 }
@@ -47,15 +73,22 @@ export default {
 </script>
 
 <template>
-    <div class="col-3 card text-light">
+    <div class="col-3 card text-light mb-4">
         <img :src="getImg()" class="card-img-top" :alt="getTitle()">
-        <div class="card-body">
-            <h5 class="card-title">Titolo: {{ getTitle() }}</h5>
-            <h5 class="card-text">Titolo Originale: {{ getOriginTitle() }}</h5>
-            <h5>Lingua Originale: {{ getLanguage() }}</h5>
+        <div class="card-body position-absolute ">
+            <h5 class="card-title">Titolo:
+                <span class="color-red">{{ getTitle() }}</span>
+            </h5>
+            <h5 class="card-text">Titolo Originale:
+                <span class="color-red">{{ getOriginTitle() }}</span>
+            </h5>
+            <div class="d-flex mb-1">
+                <h5 class="me-2">Lingua Originale:</h5>
+                <img :src="flagApi(getLanguage())" :alt="getLanguage()">
+            </div>
             <div class="d-flex align-items-center">
                 <h5 class="m-0 me-2">Voto:</h5>
-                <i v-for="n in 5" class="fa-star" :class="(n <= getVote()) ? 'fa-solid' : 'fa-regular'"></i>
+                <i v-for="n in 5" class="fa-star text-warning" :class="(n <= getVote()) ? 'fa-solid' : 'fa-regular'"></i>
             </div>
         </div>
     </div>

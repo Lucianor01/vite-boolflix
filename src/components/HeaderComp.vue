@@ -14,6 +14,12 @@ export default {
   },
   created() {
     this.filmSerieApi
+    // API TRENDING SERIE
+    axios.get(`https://api.themoviedb.org/3/discover/tv?api_key=${store.laMiaApiKey}&language=it&with_networks=213&`)
+      .then((res) => {
+        // console.log(res.data.results)
+        store.arraySerieNetflix = res.data.results
+      })
   },
   methods: {
     filmSerieApi() {
@@ -30,16 +36,8 @@ export default {
           // console.log(res.data.results)
           store.arraySeries = res.data.results
         })
-
-      // API TRENDING SERIE
-      axios.get(`https://api.themoviedb.org/3/discover/tv?api_key=${store.laMiaApiKey}&language=it&with_networks=213&`)
-        .then((res) => {
-          console.log(res.data.results)
-          store.arraySerieNetflix = res.data.results
-        })
-    }
+    },
   },
-
 }
 
 </script>

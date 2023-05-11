@@ -25,4 +25,38 @@ body {
         background: #8f8c8c;
     }
 
+    .card {
+        border: 0;
+        background-color: #1b1b1b;
+        position: relative;
+
+        &:hover {
+            cursor: pointer;
+            filter: brightness(100%);
+
+            .card-img-top {
+                filter: brightness(0%);
+            }
+
+            .card-body {
+                display: block;
+            }
+        }
+
+        .card-img-top {
+            transition: filter 0.3s ease-in-out;
+        }
+
+        .card-body {
+            top: 50px;
+            left: 10px;
+            display: none;
+
+            .color-red {
+                color: red;
+            }
+
+        }
+    }
+
 }

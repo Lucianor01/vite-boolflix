@@ -13,9 +13,6 @@ export default {
             store,
         }
     },
-    methods: {
-
-    },
 }
 
 </script>
@@ -31,11 +28,11 @@ export default {
     </div>
     <div class="container">
         <div class="row mb-5" v-if="store.arrayFilms.length">
-            <h2>Film</h2>
+            <h2 class="mb-4">FILM</h2>
             <FilmComp v-for="(film, index) in store.arrayFilms" :key="index" :info="film" />
         </div>
         <div class="row" v-if="store.arraySeries.length">
-            <h2>Serie</h2>
+            <h2 class="mb-4">SERIE TV</h2>
             <FilmComp v-for="(serie, index) in store.arraySeries" :key="index" :info="serie" />
         </div>
     </div>
