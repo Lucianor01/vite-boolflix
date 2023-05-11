@@ -47,7 +47,7 @@ export default {
 </script>
 
 <template>
-    <div class="col-3 card">
+    <div class="col-3 card text-light">
         <img :src="getImg()" class="card-img-top" :alt="getTitle()">
         <div class="card-body">
             <h5 class="card-title">Titolo: {{ getTitle() }}</h5>
@@ -62,7 +62,16 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-.card-img-top {
-    height: 440px;
+.card {
+
+    border: 0;
+    background-color: #1b1b1b;
+
+    .card-img-top {
+        height: 440px;
+
+
+    }
+
 }
 </style>

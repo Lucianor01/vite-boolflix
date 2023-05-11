@@ -20,24 +20,24 @@ export default {
       //* API FILM
       axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${store.laMiaApiKey}&language=it-IT&query=${store.searchBar}`)
         .then((res) => {
-          console.log(res.data)
+          // console.log(res.data).results
           store.arrayFilms = res.data.results
         })
 
       // API SERIE 
       axios.get(`https://api.themoviedb.org/3/search/tv?api_key=${store.laMiaApiKey}&language=it-IT&query=${store.searchBar}`)
         .then((res) => {
-          console.log(res.data.results)
+          // console.log(res.data.results)
           store.arraySeries = res.data.results
         })
 
-      // API TRENDING FILM
-      axios.get(`https://api.themoviedb.org/3/trending/movie/day?api_key=${store.laMiaApiKey}`)
+      // API TRENDING SERIE
+      axios.get(`https://api.themoviedb.org/3/discover/tv?api_key=${store.laMiaApiKey}&language=it&with_networks=213&`)
         .then((res) => {
           console.log(res.data.results)
-          store.arraySeries = res.data.results
+          store.arraySerieNetflix = res.data.results
         })
-    },
+    }
   },
 
 }
@@ -45,7 +45,7 @@ export default {
 </script>
 
 <template>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+  <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="#" title="Image from freepnglogos.com">
         <img src="https://www.freepnglogos.com/uploads/netflix-logo-0.png" width="200" alt="netflix logo" />

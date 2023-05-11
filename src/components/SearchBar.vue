@@ -17,7 +17,7 @@ export default {
         <div class="d-flex">
             <input class="form-control me-2" type="search" placeholder="Cerca" aria-label="Search"
                 v-model="store.searchBar">
-            <button @click.prevent="$emit('nomeEmit')" class="btn btn-outline-success" type="submit">Search</button>
+            <button @click.prevent="$emit('nomeEmit')" class="btn btn-outline-success" type="submit">Cerca</button>
         </div>
     </form>
 </template>

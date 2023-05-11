@@ -1,10 +1,12 @@
 <script>
 import { store } from '../store'
 import FilmComp from './FilmComp.vue';
+import OriginaliNetflix from './OriginaliNetflix.vue';
 export default {
     name: "MainComp",
     components: {
         FilmComp,
+        OriginaliNetflix
     },
     data() {
         return {
@@ -19,11 +21,16 @@ export default {
 </script>
 
 <template>
-    <div>
-        <h2>Originali Netflix</h2>
+    <div class="container mb-5">
+        <div>
+            <h2 class="mb-4">Popolari su Netflix</h2>
+        </div>
+        <div class="row flex-nowrap overflow-auto">
+            <OriginaliNetflix v-for="(netflix, index) in store.arraySerieNetflix" :key="index" :infoNetflix="netflix" />
+        </div>
     </div>
     <div class="container">
-        <div class="row" v-if="store.arrayFilms.length">
+        <div class="row mb-5" v-if="store.arrayFilms.length">
             <h2>Film</h2>
             <FilmComp v-for="(film, index) in store.arrayFilms" :key="index" :info="film" />
         </div>
