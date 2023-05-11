@@ -6,7 +6,6 @@ export default {
   name: "HeaderComp",
   components: {
     SearchBar
-
   },
   data() {
     return {
@@ -14,21 +13,22 @@ export default {
     }
   },
   created() {
-    this.filmApi
+    this.filmSerieApi
   },
-  computed: {
-    filmApi() {
-      axios.get(`https://api.themoviedb.org/3/search/movie?api_key=71aa9f50b1baf0436eca08c94d26bfd2&language=it-IT&query=${store.searchBar}&page=1&include_adult=false`)
+  methods: {
+    filmSerieApi() {
+      axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${store.laMiaApiKey}&language=it-IT&query=${store.searchBar}`)
+        .then((res) => {
+          console.log(res.data)
+          store.arrayFilms = res.data.results
+        })
+
+      axios.get(`https://api.themoviedb.org/3/search/tv?api_key=${store.laMiaApiKey}&language=it-IT&query=${store.searchBar}`)
         .then((res) => {
           console.log(res.data.results)
-          console.log(store.searchBar)
-          // store.loadingData = false
-
-          const datiApi = res.data.results
-
-          store.arrayFilms = datiApi
+          store.arraySeries = res.data.results
         })
-    }
+    },
   }
 }
 
@@ -38,7 +38,7 @@ export default {
   <nav class="navbar bg-dark" data-bs-theme="dark">
     <div class="container-fluid">
       <a class="navbar-brand">Navbar</a>
-      <SearchBar @nomeEmit="filmApi" />
+      <SearchBar @nomeEmit="filmSerieApi" />
     </div>
   </nav>
 </template>
