@@ -19,6 +19,9 @@ export default {
 </script>
 
 <template>
+    <div>
+        <h2>Originali Netflix</h2>
+    </div>
     <div class="container">
         <div class="row" v-if="store.arrayFilms.length">
             <h2>Film</h2>
