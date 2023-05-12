@@ -13,6 +13,19 @@ export default {
             store,
         }
     },
+    methods: {
+        scrollOrizzontale(e, elementHtml) {
+
+            const container = document.getElementById(elementHtml)
+
+            if (e.deltaY > 0) {
+                container.scrollLeft += 100
+            } else {
+                container.scrollLeft -= 100
+            }
+
+        }
+    },
 }
 
 </script>
@@ -22,7 +35,8 @@ export default {
         <div>
             <h2 class="mb-4">Popolari su Netflix</h2>
         </div>
-        <div class="row flex-nowrap overflow-auto">
+        <div @wheel.prevent="scrollOrizzontale($event, 'container-netflix')" id="container-netflix"
+            class="row flex-nowrap overflow-auto">
             <OriginaliNetflix v-for="(netflix, index) in store.arraySerieNetflix" :key="index" :infoNetflix="netflix" />
         </div>
     </div>

@@ -45,7 +45,7 @@ export default {
 <template>
   <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#" title="Image from freepnglogos.com">
+      <a class="navbar-brand" href="/" title="Image from freepnglogos.com">
         <img src="https://www.freepnglogos.com/uploads/netflix-logo-0.png" width="200" alt="netflix logo" />
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
